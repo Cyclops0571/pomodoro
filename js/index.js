@@ -113,7 +113,7 @@ function status() {
 
 function start() {
     "use strict";
-    $.getJSON('/pomodoro/api.php', {
+    $.getJSON('api.php', {
         u: username,
         c: "start"
     }, refresh);
@@ -194,8 +194,8 @@ $("#stop").button();
 $("#player").jPlayer({
     ready: function () {
         $(this).jPlayer("setMedia", {
-            mp3: "/pomodoro/media/TaDa.mp3",
-            oga: "/pomodoro/media/TaDa.ogg"
+            mp3: "/media/TaDa.mp3",
+            oga: "/media/TaDa.ogg"
         });
         status();
     },

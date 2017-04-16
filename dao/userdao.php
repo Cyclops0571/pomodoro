@@ -53,8 +53,9 @@ class UserDao extends Dao
     {
         $user = null;
         $db = $this->get_connection();
-        if ($stmt = $db->prepare("SELECT user.username, user.status, user.begin, record.success FROM user LEFT JOIN record on user.username = record.username AND record.date = ? WHERE user.username = ?")) {
-            $stmt->bind_param('ss', date('Y-m-d'), $username);
+        if ($stmt = $db->prepare("SELECT user.username, user.status, user.begin, record.success FROM user LEFT JOIN record on user.username = record.username     AND record.date = ? WHERE user.username = ?")) {
+            $date = date('Y-m-d');
+            $stmt->bind_param('ss', $date, $username);
             $stmt->execute();
             $stmt->bind_result($username, $status, $begin, $success);
             if ($stmt->fetch()) {
@@ -74,7 +75,8 @@ class UserDao extends Dao
         $users = array();
         $db = $this->get_connection();
         if ($stmt = $db->prepare("SELECT user.username, user.status, user.begin, record.success FROM user LEFT JOIN record on user.username = record.username AND record.date = ? ORDER BY user.username")) {
-            $stmt->bind_param('s', date('Y-m-d'));
+            $date = date('Y-m-d');
+            $stmt->bind_param('s', $date);
             $stmt->execute();
             $stmt->bind_result($username, $status, $begin, $success);
             while ($stmt->fetch()) {

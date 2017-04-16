@@ -1,8 +1,8 @@
 <?php
-$DB_HOST="localhost";
-$DB_USER="pomodoro";
-$DB_PASS="serd12";
-$DB_NAME="galepress_pomodoro";
+$DB_HOST="127.0.0.1";
+$DB_USER="homestead";
+$DB_PASS="secret";
+$DB_NAME="pomodoro";
 
 $POMODORO_LENGTH=25*60;
 $SHORT_BREAK_LENGTH=5*60;
